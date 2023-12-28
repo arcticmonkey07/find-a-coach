@@ -17,6 +17,10 @@
           <label for="password">Пароль</label>
           <input type="password" id="password" v-model.trim="password" />
         </div>
+        <div class="form-control">
+          <label for="apiKey">API key</label>
+          <input type="text" id="apiKey" v-model.trim="apiKey" />
+        </div>
         <p v-if="!formIsValid">
           Пожалуйста, введите действительный адрес электронной почты и пароль (должно быть не менее 6 символов).
         </p>
@@ -35,6 +39,7 @@ export default {
     return {
       email: '',
       password: '',
+      apiKey: '',
       formIsValid: true,
       mode: 'login',
       isLoading: false,
@@ -74,6 +79,7 @@ export default {
       const actionPayload = {
         email: this.email,
         password: this.password,
+        apiKey: this.apiKey,
       };
 
       try {

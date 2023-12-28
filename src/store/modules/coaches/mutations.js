@@ -7,5 +7,8 @@ export default {
   },
   setFetchTimestamp(state) {
     state.lastFetch = new Date().getTime();
+  },
+  delCoach(state, payload) {
+    state.coaches = state.coaches.filter(coach => coach.id !== payload);
   }
 }

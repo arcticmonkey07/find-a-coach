@@ -62,4 +62,18 @@ export default {
     context.commit('setCoaches', coaches);
     context.commit('setFetchTimestamp');
   },
+  async delCoach(context, payload) {
+    const userId = payload;
+
+    const token = context.rootGetters.token;
+
+    await fetch(
+      `https://vue-http-demo-536c1-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=` + token,
+      {
+        method: 'DELETE',
+      }
+    );
+
+    context.commit('delCoach', payload);
+  }
 };
